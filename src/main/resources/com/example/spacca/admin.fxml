@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:id="rootBox" style="-fx-background-color: #f0f0f0; -fx-padding: 10px;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.spacca.controller.AdminUIController">
+
+    <!-- Logo, Title, and Config Icon in an HBox -->
+    <HBox spacing="85" alignment="CENTER">
+        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@icons/logo.png"/>
+        </ImageView>
+
+        <Label text="Welcome" style="-fx-font-size: 20px; -fx-text-fill: #333;" translateX="-20"/>
+
+        <ImageView fx:id="configBtn" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@icons/config_icon.png"/>
+        </ImageView>
+    </HBox>
+
+    <!-- User Input Section -->
+    <VBox alignment="TOP_CENTER" spacing="10.0">
+        <Label text="Enter Player Name:" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+
+        <TextField fx:id="playerNameField" promptText="Player Name" prefWidth="200"
+                   style="-fx-background-radius: 5; -fx-background-color: #fff; -fx-border-color: #999; -fx-border-width: 1px;"/>
+
+        <Button text="Add Player" onAction="#addPlayer" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;"/>
+
+        <ScrollPane fx:id="playerDetailsContainer" prefWidth="200" prefHeight="300">
+        </ScrollPane>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Create Game Session" onAction="#createGameSession" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px;" />
+            <Button text="Discard all data" onAction="#discardPlayersData" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px;" />
+        </HBox>
+    </VBox>
+</VBox>

@@ -1,0 +1,35 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.spacca.EntryPoint"
+      style="-fx-background-color: #f0f0f0; -fx-padding: 20; -fx-alignment: center;" spacing="20">
+
+    <ImageView
+            fx:id="helpBtn"
+            fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" translateX="150">
+        <Image url="@icons/help_icon.png"/>
+    </ImageView>
+    <Label
+            style="-fx-font-size: 24px; -fx-text-fill: #333;" translateY="-60">
+        Welcome to Spacca!
+    </Label>
+    <ImageView
+            fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@icons/logo.png"/>
+    </ImageView>
+
+    <HBox spacing="20" alignment="center">
+        <Button fx:id="playerBtn"
+                text="Enter as Player"
+                onAction="#playerBtnClickListener"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 20; -fx-border-radius: 5;"/>
+        <Button fx:id="adminBtn"
+                text="Enter as Admin"
+                onAction="#adminBtnClickListener"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 20; -fx-border-radius: 5;"/>
+    </HBox>
+</VBox>

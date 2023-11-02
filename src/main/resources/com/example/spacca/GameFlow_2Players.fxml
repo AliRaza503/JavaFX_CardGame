@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- UI Design idea -->
+<!-- In the center of the screen there are cards with only the top card visible. It is the discard pile. (First card will be generated randomly) -->
+<!-- On the left side of the screen cards for the first player are shown.-->
+<!-- There is a text view below the card showing the total number of cards -->
+<!-- There is a button below the text view to draw a card from the deck which prompts the user to enter his code. -->
+<!-- There is a button below the draw card button to end the turn. (If there is no matching card) -->
+<!-- Same is for the right side -->
+<!-- Ending the turn from both sides twice will cause a draw -->
+<!-- If a player has no cards left, he wins -->
+<!-- Top of the window display the current player's name -->
+<!-- https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/BorderPane.html -->
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spacca.controller.GameFlowController"
+            style="-fx-background-color: #f0f0f0;"
+            prefHeight="400.0"
+            prefWidth="600.0">
+
+    <!-- Top of the window displays the current player's name -->
+    <top>
+        <VBox alignment="CENTER" style="-fx-background-color: #333; -fx-padding: 10px;">
+            <Label fx:id="playerName" text="Current Player: Player 1" style="-fx-font-size: 24; -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <!-- Center of the window -->
+    <left>
+        <!-- Left Side (Player 1) -->
+        <VBox spacing="10" fx:id="player1"
+              style="-fx-alignment: CENTER; -fx-padding: 50; -fx-background-color: rgba(18,52,68,0.2)">
+            <Label fx:id="player1NameLabel" text="Player 1" style="-fx-font-size: 20;"/> <!-- Player 1's name -->
+            <Label fx:id="player1Pts" text="Points: " style="-fx-font-size: 18;"/>
+            <!-- Text view for Player 1's card count -->
+            <Label fx:id="player1CardCountLabel" text="Cards Remaining: 0" style="-fx-font-size: 16;"/>
+            <!-- Player 1's cards -->
+            <ImageView fx:id="player1Cards">
+                <Image url="@cards/hidden.png" preserveRatio="true"/>
+            </ImageView>
+
+            <!-- Button to draw a card for Player 1 -->
+            <Button fx:id="drawCardPlayer1Button" text="Draw Card"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 20; -fx-border-radius: 5;"/>
+            <!-- Button to discard Turn for Player 1 -->
+            <Button fx:id="endTurnPlayer1Button" text="End Turn"
+                    style="-fx-background-color: #ff0000; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 20; -fx-border-radius: 5;"/>
+        </VBox>
+    </left>
+    <center>
+        <!-- Discard Pile -->
+        <VBox spacing="10" alignment="CENTER">
+            <!-- Text view for Discard pile -->
+            <Label text="Discard Pile" style="-fx-font-size: 20;"/>
+            <!-- Top card of the discard pile -->
+            <ImageView fx:id="discardPileTopCard">
+                <Image url="@cards/hidden.png" preserveRatio="true"/>
+            </ImageView>
+        </VBox>
+    </center>
+    <right>
+        <!-- Right Side (Player 2) -->
+        <VBox spacing="10" fx:id="player2"
+              style="-fx-alignment: CENTER; -fx-padding: 50; -fx-background-color: rgba(18,52,68,0.2)">
+            <Label fx:id="player2NameLabel" text="Player 2" style="-fx-font-size: 20;"/> <!-- Player 2's name -->
+            <Label fx:id="player2Pts" text="Points: " style="-fx-font-size: 18;"/>
+            <!-- Text view for Player 2's card count -->
+            <Label fx:id="player2CardCountLabel" text="Cards Remaining: 0" style="-fx-font-size: 16;"/>
+            <!-- Player 2's cards -->
+            <ImageView fx:id="player2Cards">
+                <Image url="@cards/hidden.png" preserveRatio="true"/>
+            </ImageView>
+            <!-- Button to draw a card for Player 2 -->
+            <Button fx:id="drawCardPlayer2Button" text="Draw Card"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 20; -fx-border-radius: 5;"/>
+            <!-- Button to discard Turn for Player 2 -->
+            <Button fx:id="endTurnPlayer2Button" text="End Turn"
+                    style="-fx-background-color: #ff0000; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 20; -fx-border-radius: 5;"/>
+        </VBox>
+    </right>
+    <!-- Bottom of the window for Pause/Resume button -->
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-background-color: #333; -fx-padding: 10px;">
+            <!-- Button to pause/resume the game -->
+            <Button fx:id="pauseResumeButton" onAction="#PauseResumeGame" text="Pause" prefWidth="100"
+                    style="-fx-font-size: 16; -fx-padding: 10 20; -fx-border-radius: 5; -fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
